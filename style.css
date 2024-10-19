@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+#game-container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#room {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 100px); /* Adjust height to fit within the container */
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+}
+
+.object {
+    position: absolute;
+    cursor: pointer;
+}
+
+#door {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+}
+
+#key1 {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    border: 2px solid black; /* Add border to keys */
+    background-color: yellow; /* Add background color to keys */
+}
+
+#key2 {
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    border: 2px solid black; /* Add border to keys */
+    background-color: yellow; /* Add background color to keys */
+}
+
+#key3 {
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    border: 2px solid black; /* Add border to keys */
+    background-color: yellow; /* Add background color to keys */
+}
+#key4 {
+    top: 50%;
+    left: 20px;
+    width: 50px;
+    border: 2px solid black; /* Add border to keys */
+    background-color: yellow; /* Add background color to keys */
+}
+#password-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#password {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}

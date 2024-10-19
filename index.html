@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="password-container" class="hide">
+            <input type="password" id="password" placeholder="Enter password">
+            <button id="submit-password" class="btn">Submit</button>
+        </div>
+        <h1>Escape Room Game</h1>
+        <div id="room">
+            <img src="door.png" id="door" class="object" alt="Door">
+            <img src="key1.png" id="key1" class="object" alt="Key 1">
+            <img src="key2.png" id="key2" class="object" alt="Key 2">
+            <img src="key3.png" id="key3" class="object" alt="Key 3">
+            <img src="key4.png" id="key4" class="object" alt="Key 4">
+        </div>
+        <div id="found-characters-container">Found Characters: </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
