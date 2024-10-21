@@ -13,7 +13,7 @@ function generateRandomPassword(length) {
 }
 
 const correctPassword = generateRandomPassword(4); // Generate a random 4-digit password
-// console.log(`Generated Password: ${correctPassword}`); // Display the password in the console for debugging
+console.log(`Generated Password: ${correctPassword}`); // Display the password in the console for debugging
 const questions = [
     {
         question: '원자번호1-20 까지의 원소중 금속 원소의 개수는?',
