@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escape Room Game</title>
+    <title>방탈출 게임 이다.</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="game-container">
+        <div id="found-characters-container">찾은 비밀번호: </div>
+        <div id="timer">00:00</div>
         <div id="password-container" class="hide">
-            <input type="password" id="password" placeholder="Enter password">
-            <button id="submit-password" class="btn">Submit</button>
+            <input type="password" id="password" placeholder="입력 비밀번호">
+            <button id="submit-password" class="btn">입력</button>
         </div>
-        <h1>Escape Room Game</h1>
+        <h1>방탈출게임하기</h1>
         <div id="room">
             <img src="door.png" id="door" class="object" alt="Door">
             <img src="key1.png" id="key1" class="object" alt="Key 1">
@@ -20,7 +22,20 @@
             <img src="key3.png" id="key3" class="object" alt="Key 3">
             <img src="key4.png" id="key4" class="object" alt="Key 4">
         </div>
-        <div id="found-characters-container">Found Characters: </div>
+
+        <div id="result-screen" class="hide">
+            <h2>Congratulations! You escaped!</h2>
+            <p id="final-time"></p>
+            <button id="restart-btn" class="btn">Restart</button>
+        </div>
+        <div id="quiz-modal" class="modal hide">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <img id="quiz-image" alt="Quiz">
+                <p id="quiz-question"></p>
+                <div id="quiz-answers"></div>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
