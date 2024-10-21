@@ -62,6 +62,35 @@ const questions = [
             { text: '5', correct: false }
         ],
         image: './images/32.jpg'
+    },
+    {
+        question: '안정한 바닥상태의 전자배치를 이루기 위해 필요한 조건은?\n(총 3개를 골라 모두 더하시오)',
+        answers: [
+            { text: '10', correct: false },
+            { text: '12', correct: false, char: correctPassword[0] },
+            { text: '15', correct: true },
+            { text: '17', correct: false }
+        ],
+        image: './images/5.jpg'
+    },
+    {
+        question: '원자량이 35인 염소의(Cl)의 존재 비율이 76%, 원자량이 37인 염소(Cl)의 존재비율이 35%일때 염소(Cl)의 평균원자량은?(소숫점 첫제 자리에서 올림)',
+        answers: [
+            { text: '38', correct: false },
+            { text: '39', correct: false, char: correctPassword[0] },
+            { text: '40', correct: true },
+            { text: '41', correct: false }
+        ],
+        image: false
+    },
+    {
+        question: '기체인 메테인과 산소가 반응하여 기체인 이산화 탄소와 액체인 물이 생성된다.\n CH4(메테인)기체의 부피가 22.4L일떄 CO2(아산화 탄소)기체의 부피는?',
+        answers: [
+            { text: '44.8L', correct: false },
+            { text: '22.4L', correct: true, char: correctPassword[0] },
+            { text: '11.2L', correct: false }
+        ],
+        image: './images/6.jpg'
     }
 ];
 
@@ -83,6 +112,13 @@ const assignedQuestions = keys.map((key, index) => {
     return { key, questions: questions.slice(index * assigneQuestionNumber, index * assigneQuestionNumber + assigneQuestionNumber) };
 });
 console.log(assignedQuestions);
+
+document.getElementById('start-btn').addEventListener('click', () => {
+    startTime = Date.now(); // Record the start time
+    document.getElementById('start-btn').classList.add('hide');
+    document.querySelectorAll('.hide').forEach(element => element.classList.remove('hide'));
+    setInterval(updateTimer, 1000); // Start the timer
+});
 
 document.getElementById('door').addEventListener('click', () => {
     if (foundCharacters.includes('_')) {
@@ -124,7 +160,7 @@ function showQuestion(question, keyId, index) {
     document.getElementById('quiz-question').innerText = questionText;
     document.getElementById('quiz-answers').innerHTML = answers;
     if (question.image){document.getElementById('quiz-image').src = question.image;
-    document.getElementById('quiz-image').style.display = 'block';}
+        document.getElementById('quiz-image').style.display = 'block';}
     else document.getElementById('quiz-image').style.display = 'none';
     modal.style.display = 'block';
 
@@ -133,11 +169,11 @@ function showQuestion(question, keyId, index) {
             const correctAnswer = question.answers[i];
             if (correctAnswer.correct) {
                 foundCharacters[index] = correctPassword[index];
-                alert(`문제를 풀고 비밀번호를 얻었다!: ${correctPassword[index]}`);
+                alert(`Correct! You found a part of the password: ${correctPassword[index]}`);
                 document.getElementById(keyId).style.display = 'none'; // Hide the key
-                document.getElementById('found-characters-container').innerText = `찾은 비밀번호: ${foundCharacters.join('')}`; // Update the display
+                document.getElementById('found-characters-container').innerText = `Found Characters: ${foundCharacters.join('')}`; // Update the display
             } else {
-                alert('틀렸다 다시 해보자.');
+                alert('Wrong answer. Try again.');
             }
             modal.style.display = 'none';
         });
@@ -147,9 +183,17 @@ function showQuestion(question, keyId, index) {
         modal.style.display = 'none';
     });
 }
+
 document.getElementById('restart-btn').addEventListener('click', () => {
     location.reload(); // Restart the game by reloading the page
 });
+document.getElementById('start-btn').addEventListener('click', () => {
+    startTime = Date.now(); // Record the start time
+    document.getElementById('start-screen').classList.add('hide');
+    document.getElementById('game-container').classList.remove('hide');
+    setInterval(updateTimer, 1000); // Start the timer
+});
+
 // Timer function
 function updateTimer() {
     const currentTime = Date.now();
@@ -158,5 +202,3 @@ function updateTimer() {
     const seconds = timeElapsed % 60;
     document.getElementById('timer').innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
-
-setInterval(updateTimer, 1000); // Update the timer every second

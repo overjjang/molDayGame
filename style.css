@@ -18,59 +18,68 @@ body {
     height: 100%;
     box-sizing: border-box;
 }
-
 #room {
     position: relative;
     width: 100%;
-    height: calc(100% - 100px); /* Adjust height to fit within the container */
-    background-color: #e0e0e0;
-    border: 1px solid #ccc;
+    height: 140%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensure no overflow */
 }
 
+#main-image {
+    position: absolute;
+    width: 50%;
+    object-fit: contain; /* Maintain aspect ratio and fit within the container */
+    z-index: 1; /* Ensure this is lower than the keys */
+}
 .object {
     position: absolute;
     cursor: pointer;
+    z-index: 2; /* Ensure this is higher than the main image */
+}
+#door {
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    width: 200px; /* Adjust size as needed */
+    height: 800px; /* Adjust size as needed */
+    background-size: cover;
+    z-index: 2; /* Ensure this is higher than the main image */
 }
 
-#door {
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
+#key1, #key2, #key3, #key4 {
+    position: absolute;
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    background-size: cover;
+    z-index: 2;
+}
+#key1:hover, #key2:hover, #key3:hover, #key4:hover {
+    border: 1px solid white;
 }
 
 #key1 {
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    border: 2px solid black; /* Add border to keys */
-    background-color: yellow; /* Add background color to keys */
+    top: 28%;
+    left: 62%;
 }
 
 #key2 {
-    bottom: 20px;
-    left: 20px;
-    width: 50px;
-    border: 2px solid black; /* Add border to keys */
-    background-color: yellow; /* Add background color to keys */
+    top: 82%;
+    left: 80%;
 }
 
 #key3 {
-    top: 20px;
-    right: 20px;
-    width: 50px;
-    border: 2px solid black; /* Add border to keys */
-    background-color: yellow; /* Add background color to keys */
+    top: 10%;
+    left: 35%;
 }
+
 #key4 {
-    top: 50%;
-    left: 20px;
-    width: 50px;
-    border: 2px solid black; /* Add border to keys */
-    background-color: yellow; /* Add background color to keys */
+    top: 70%;
+    left: 45%;
 }
 #password-container {
-    margin-bottom: 20px;
     text-align: center;
 }
 
@@ -119,7 +128,7 @@ body {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 3; /* Ensure this is higher than the keys */
     left: 0;
     top: 0;
     width: 100%;
@@ -134,9 +143,20 @@ body {
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 120%;
+    width: 80%;
     max-width: 600px;
     text-align: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+    min-height: 400px;
+    min-width: 300px;
+    z-index: 11; /* Ensure this is higher than the keys */
+    background-image: url('images/PROBLEM.png'); /* Add this line */
+    background-size: 100%; /* Ensure the image covers the entire modal */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat;
 }
 
 .close-btn {
@@ -156,4 +176,63 @@ body {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
+}
+#start-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#start-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+#start-btn {
+    position: absolute;
+    top: 61%;
+    left: 50%;
+    width: 180px;
+    height: 90px;
+    transform: translate(-50%, -50%);
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+}
+#main-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#main-image {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+}
+
+#main-btn {
+    position: absolute;
+    bottom: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+}
+.hide {
+    display: none;
+    visibility: hidden;
 }

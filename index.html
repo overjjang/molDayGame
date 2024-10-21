@@ -7,22 +7,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="game-container">
+    <div id="start-screen">
+        <img src="images/start.jpg" id="start-image" alt="Start Image">
+        <button id="start-btn" class="btn">Start</button>
+    </div>
+    <div id="game-container" class="hide">
         <div id="found-characters-container">찾은 비밀번호: </div>
         <div id="timer">00:00</div>
         <div id="password-container" class="hide">
             <input type="password" id="password" placeholder="입력 비밀번호">
             <button id="submit-password" class="btn">입력</button>
         </div>
-        <h2>몰랑 임파서블</h2>
         <div id="room">
-            <img src="door.png" id="door" class="object" alt="Door">
-            <img src="key1.png" id="key1" class="object" alt="Key 1">
-            <img src="key2.png" id="key2" class="object" alt="Key 2">
-            <img src="key3.png" id="key3" class="object" alt="Key 3">
-            <img src="key4.png" id="key4" class="object" alt="Key 4">
+            <img src="images/main.jpg" id="main-image" alt="Main Image">
+            <div id="door" class="object"></div>
+            <div id="key1" class="object"></div>
+            <div id="key2" class="object"></div>
+            <div id="key3" class="object"></div>
+            <div id="key4" class="object"></div>
         </div>
-
         <div id="result-screen" class="hide">
             <h2>Congratulations! You escaped!</h2>
             <p id="final-time"></p>
