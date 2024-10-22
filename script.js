@@ -76,7 +76,7 @@ const questions = [
             { text: '15', correct: true },
             { text: '17', correct: false }
         ],
-        image: './images/5.jpg'
+        image: './images/51.jpg'
     },
     {
         question: '원자량이 35인 염소의(Cl)의 존재 비율이 76%, 원자량이 37인 염소(Cl)의 존재비율이 35%일때 염소(Cl)의 평균원자량은?(소숫점 첫제 자리에서 올림)',
@@ -169,6 +169,8 @@ function showQuestion(question, keyId, index) {
     else document.getElementById('quiz-image').style.display = 'none';
     modal.style.display = 'block';
 
+    let moreDiscontTime = 0;
+
     document.querySelectorAll('.answer-btn').forEach((btn, i) => {
         btn.addEventListener('click', () => {
             const correctAnswer = question.answers[i];
@@ -179,7 +181,8 @@ function showQuestion(question, keyId, index) {
                 document.getElementById('found-characters-container').innerText = `Found Characters: ${foundCharacters.join('')}`; // Update the display
             } else {
                 alert('틀렸다 다시 생각해보자.');
-                countdownTime -= 30;
+                countdownTime -= 30+moreDiscontTime;
+                moreDiscontTime += 10;
             }
             modal.style.display = 'none';
         });
