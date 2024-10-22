@@ -169,7 +169,7 @@ function showQuestion(question, keyId, index) {
             const correctAnswer = question.answers[i];
             if (correctAnswer.correct) {
                 foundCharacters[index] = correctPassword[index];
-                alert(`Correct! You found a part of the password: ${correctPassword[index]}`);
+                alert(`문제를 맞추고 비밀번호를 얻었다!: ${correctPassword[index]}`);
                 document.getElementById(keyId).style.display = 'none'; // Hide the key
                 document.getElementById('found-characters-container').innerText = `Found Characters: ${foundCharacters.join('')}`; // Update the display
             } else {
