@@ -180,9 +180,10 @@ function showQuestion(question, keyId, index) {
                 document.getElementById(keyId).style.display = 'none'; // Hide the key
                 document.getElementById('found-characters-container').innerText = `Found Characters: ${foundCharacters.join('')}`; // Update the display
             } else {
-                alert('틀렸다 다시 생각해보자.');
-                countdownTime -= 30+moreDiscontTime;
                 moreDiscontTime += 10;
+                alert(`틀렸다 다시 생각해보자. ${moreDiscontTime+20}초가 감소한다.`);
+                countdownTime -= 20 + moreDiscontTime;
+
             }
             modal.style.display = 'none';
         });
