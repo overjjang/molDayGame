@@ -11,6 +11,8 @@ function generateRandomPassword(length) {
     }
     return result;
 }
+let moreDiscontTime = 0;
+
 
 const correctPassword = generateRandomPassword(4); // Generate a random 4-digit password
 // console.log(`Generated Password: ${correctPassword}`); // Display the password in the console for debugging
@@ -169,7 +171,6 @@ function showQuestion(question, keyId, index) {
     else document.getElementById('quiz-image').style.display = 'none';
     modal.style.display = 'block';
 
-    let moreDiscontTime = 0;
 
     document.querySelectorAll('.answer-btn').forEach((btn, i) => {
         btn.addEventListener('click', () => {
