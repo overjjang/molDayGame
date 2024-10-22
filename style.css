@@ -54,6 +54,7 @@ body {
     width: 50px; /* Adjust size as needed */
     height: 50px; /* Adjust size as needed */
     background-size: cover;
+    /*background-color: yellow;*/
     z-index: 2;
 }
 #key1:hover, #key2:hover, #key3:hover, #key4:hover {
@@ -76,8 +77,8 @@ body {
 }
 
 #key4 {
-    top: 70%;
-    left: 45%;
+    top: 16%;
+    left: 25%;
 }
 #password-container {
     text-align: center;
@@ -252,4 +253,29 @@ align-items: center;
 .hide {
     display: none;
     visibility: hidden;
+}
+#game-over-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+}
+
+#game-over-screen h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+#game-over-screen #restart-btn {
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
 }

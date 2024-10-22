@@ -13,7 +13,7 @@ function generateRandomPassword(length) {
 }
 
 const correctPassword = generateRandomPassword(4); // Generate a random 4-digit password
-console.log(`Generated Password: ${correctPassword}`); // Display the password in the console for debugging
+// console.log(`Generated Password: ${correctPassword}`); // Display the password in the console for debugging
 const questions = [
     {
         question: '원자번호1-20 까지의 원소중 금속 원소의 개수는?',
@@ -40,7 +40,10 @@ const questions = [
     {
         question: 'L껍질의 주 양자수, 오비탈의 총수, 최대 수용 전자수의 합을 구하고 각 자릿수의 합을 구하시오.',
         answers: [
-            { text: '4', correct: true, char: correctPassword[2] }
+            { text: '4', correct: false, char: correctPassword[2] },
+            { text: '5', correct: true },
+            { text: '6', correct: false },
+            { text: '7', correct: false }
         ],
         image: false
     },
@@ -194,11 +197,21 @@ document.getElementById('start-btn').addEventListener('click', () => {
     setInterval(updateTimer, 1000); // Start the timer
 });
 
-// Timer function
+let countdownTime = 300; // 5 minutes in seconds
+
 function updateTimer() {
-    const currentTime = Date.now();
-    const timeElapsed = Math.floor((currentTime - startTime) / 1000);
-    const minutes = Math.floor(timeElapsed / 60);
-    const seconds = timeElapsed % 60;
+    const minutes = Math.floor(countdownTime / 60);
+    const seconds = countdownTime % 60;
     document.getElementById('timer').innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    console.log(countdownTime);
+    // Check if time has run out
+    if (countdownTime <= 0) {
+        document.getElementById('game-over-screen').style.visibility = 'visible';
+        clearInterval(timerInterval); // Stop the timer
+    } else {
+        countdownTime--; // Decrease the countdown time
+    }
 }
+
+// Start the timer
+const timerInterval = setInterval(updateTimer, 1000); // Ensure this is set to 1000 milliseconds
