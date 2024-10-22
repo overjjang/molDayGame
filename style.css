@@ -41,7 +41,7 @@ body {
 }
 #door {
     position: absolute;
-    top: 10%;
+    top: 15%;
     left: 15%;
     width: 200px; /* Adjust size as needed */
     height: 800px; /* Adjust size as needed */
@@ -78,7 +78,7 @@ body {
 
 #key4 {
     top: 17%;
-    left: 23%;
+    left: 24%;
 }
 #password-container {
     text-align: center;
