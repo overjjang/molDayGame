@@ -48,11 +48,13 @@ const questions = [
         image: false
     },
     {
-        question: '결합각이 109.5°인 분자의 공유 전자쌍 수는?',
+        question: '결합각이 109.5°이고 정사면체형인 분자의 공유 전자쌍 수, 비공유 전자쌍 수의 합은??',
         answers: [
-            { text: 'Earth', correct: false },
-            { text: 'Mars', correct: false },
-            { text: 'Jupiter', correct: true, char: correctPassword[3] }
+            { text: '2', correct: false },
+            { text: '3', correct: false },
+            { text: '4', correct: true, char: correctPassword[3] },
+            { text: '5', correct: false },
+            { text: '6', correct: false }
         ],
         image: false
     },
@@ -176,7 +178,8 @@ function showQuestion(question, keyId, index) {
                 document.getElementById(keyId).style.display = 'none'; // Hide the key
                 document.getElementById('found-characters-container').innerText = `Found Characters: ${foundCharacters.join('')}`; // Update the display
             } else {
-                alert('Wrong answer. Try again.');
+                alert('틀렸다 다시 생각해보자.');
+                countdownTime -= 30;
             }
             modal.style.display = 'none';
         });
@@ -190,11 +193,13 @@ function showQuestion(question, keyId, index) {
 document.getElementById('restart-btn').addEventListener('click', () => {
     location.reload(); // Restart the game by reloading the page
 });
+document.getElementById('fail-restart-btn').addEventListener('click', () => {
+    location.reload(); // Restart the game by reloading the page
+});
 document.getElementById('start-btn').addEventListener('click', () => {
     startTime = Date.now(); // Record the start time
     document.getElementById('start-screen').classList.add('hide');
     document.getElementById('game-container').classList.remove('hide');
-    setInterval(updateTimer, 1000); // Start the timer
 });
 
 let countdownTime = 300; // 5 minutes in seconds
@@ -212,6 +217,3 @@ function updateTimer() {
         countdownTime--; // Decrease the countdown time
     }
 }
-
-// Start the timer
-const timerInterval = setInterval(updateTimer, 1000); // Ensure this is set to 1000 milliseconds

@@ -274,7 +274,7 @@ align-items: center;
     margin-bottom: 20px;
 }
 
-#game-over-screen #restart-btn {
+#game-over-screen #fail-restart-btn {
     padding: 10px 20px;
     font-size: 20px;
     cursor: pointer;
